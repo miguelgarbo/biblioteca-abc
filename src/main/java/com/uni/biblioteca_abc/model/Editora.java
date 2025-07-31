@@ -1,6 +1,4 @@
 package com.uni.biblioteca_abc.model;
-
-
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
