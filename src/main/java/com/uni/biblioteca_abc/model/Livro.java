@@ -1,11 +1,11 @@
 package com.uni.biblioteca_abc.model;
 
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import jakarta.persistence.*;
 import lombok.Data;
+
+import java.util.List;
 
 @Data
 @Entity
@@ -18,4 +18,16 @@ public class Livro {
     private String sinopse;
     private Integer ano;
     private Integer numeroPaginas;
+
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JsonIgnoreProperties("livros")
+    private Editora editora;
+
+    @ManyToMany(mappedBy = "livros")
+    private List<Autor> autores;
+
+    @ManyToOne
+    private Biblioteca biblioteca; // ✅ Correto agora
+
+
 }

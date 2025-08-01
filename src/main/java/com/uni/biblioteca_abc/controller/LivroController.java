@@ -37,7 +37,7 @@ public class LivroController {
         }
     }
 
-    @PutMapping("/update/{id]")
+    @PutMapping("/update/{id}")
     public ResponseEntity<String> update (@RequestBody Livro livro, @PathVariable Long id){
 
         try{

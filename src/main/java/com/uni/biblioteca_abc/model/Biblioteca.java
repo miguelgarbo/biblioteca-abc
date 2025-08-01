@@ -1,10 +1,9 @@
 package com.uni.biblioteca_abc.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.Data;
+
+import java.util.List;
 
 @Data
 @Entity
@@ -14,5 +13,9 @@ public class Biblioteca {
     private Long id;
     private String nome;
     private String telefone;
+
+    @OneToMany(mappedBy = "biblioteca")
+    private List<Livro> livros;
+
 
 }
